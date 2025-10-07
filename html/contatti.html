@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contatti | Str3etwear</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap" rel="stylesheet">
+  
+  <!-- CSS Embedded -->
+
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Str3etwear</h1>
+      <nav class="menu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="#">Sneakers ▾</a>
+            <ul class="dropdown-menu">
+              <li><a href="nike.html">Nike</a></li>
+              <li><a href="adidas.html">Adidas</a></li>
+              <li><a href="jordan.html">Jordan</a></li>
+              <li><a href="newbalance.html">New Balance</a></li>
+              <li><a href="puma.html">Puma</a></li>
+            </ul>
+          </li>
+          <li><a href="nuoveuscite.html">Nuove Uscite</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- CONTATTI formspree -->
+  <section class="contact-form">
+    <h2>Contattaci</h2>
+    <form action="dati.html" method="post">
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" name="nome" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="messaggio">Messaggio</label>
+      <textarea id="messaggio" name="messaggio" required></textarea>
+
+      <input type="submit" value="Invia Messaggio" class="submit-btn">
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      © 2023 Str3etwear — Tutti i diritti riservati
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,72 +1,358 @@
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: f4f4f4;
+/* RESET */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-.header{
+/* GENERALI */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* HEADER */
+.header {
     color: rgb(211, 91, 35);
     background-color: #ffffff;
     padding: 10px 0;
     text-align: center;
-
+    z-index: 10001;
+    position: relative;
+    animation: fadeInUp 0.8s ease forwards;
 }
 
-.menu{
+.logo {
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* MENU */
+.menu {
     font-size: 20px;
     display: flex;
     justify-content: center;
     background-color: rgb(211, 91, 35);
-
-
+    z-index: 9999;
+    position: relative;
 }
 
-.menu ul{
+.menu ul {
     list-style: none;
+    display: flex;
     margin: 0;
     padding: 0;
-    display: flex;
-
-
-
 }
 
-.menu ul li{
+.menu ul li {
     margin: 10px;
-
-
+    position: relative;
 }
 
-.menu ul li a{
-    color: #ffff;
+.menu ul li a {
+    color: #ffffff;
     text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    position: relative;
+
+    /* Contenitore sfocato bianco */
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-
-.menu ul li a:hover{
+.menu ul li a:hover {
     text-decoration: underline;
     color: black;
+    background: rgba(255, 255, 255, 0.6);
 }
 
-.content{
-    background-image:url(\immagine.jpg);
-    padding: 400px;
+/* Underline animato */
+.menu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 2px;
+    background-color: #ff3c00;
+    transition: width 0.3s ease;
 }
-.content {
-    background-image: url('image.jpg'); 
-    background-size: cover; 
-    background-position: center; 
-    padding: 400px;
+
+.menu a:hover::after {
+    width: 100%;
+}
+
+/* DROPDOWN */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    min-width: 180px;
+    z-index: 10002;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: flex;
+}
+
+.dropdown-menu li {
+    list-style: none;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 15px;
+    color: #000;
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid #000;
+    border-radius: 0; /* reset se presente */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown-menu li:last-child a {
+    border-bottom: none;
+    border-radius: 0 0 8px 8px;
+}
+
+.dropdown-menu li a:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.03);
+}
+
+/* SLIDESHOW */
+.image-slideshow {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 250px;
+    margin: 50px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    animation: slideAnimation 15s infinite;
+}
+
+.slide:nth-child(1) { animation-delay: 0s; }
+.slide:nth-child(2) { animation-delay: 5s; }
+.slide:nth-child(3) { animation-delay: 10s; }
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.description {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    width: 100%;
+    padding: 15px;
     text-align: center;
-    color: #fff;
 }
-.footer{
+
+@keyframes slideAnimation {
+    0%   { opacity: 0; }
+    5%   { opacity: 1; }
+    30%  { opacity: 1; }
+    35%  { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* MAIN CONTENT */
+.content {
+    max-width: 800px;
+    margin: 30px auto 60px auto;
+    padding: 50px 20px;
+    background-image: url('image.jpg'); /* Aggiorna con percorso corretto */
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    min-height: 300px;
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.3s;
+}
+
+/* Sovrapposizione scura */
+.content::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    border-radius: 10px;
+    z-index: 0;
+}
+
+.content > * {
+    position: relative;
+    z-index: 1;
+}
+ /* BARRA BRAND SOTTO MENU */
+  .brand-bar {
+    background-color: rgb(211, 91, 35);
+    color: white;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 24px;
+    padding: 10px 0;
+    border-top: 4px solid #ff3c00; /* bordo superiore più forte */
+    border-bottom: 4px solid #ff3c00; /* bordo inferiore più forte */
+    margin-bottom: 20px;
+  }
+  /* GRIGLIA SNEAKERS 3x3 */
+  .sneakers-grid {
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 0 10px;
+  }
+  .sneaker-cell {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  .sneaker-cell:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  }
+  .sneaker-cell img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 2px solid rgb(211, 91, 35);
+  }
+  .sneaker-name {
+    padding: 12px 8px;
+    font-weight: 600;
+    font-size: 16px;
+    color: rgb(211, 91, 35);
+  }
+
+
+/* FORM CONTATTI */
+.contact-form {
+    max-width: 600px;
+    margin: 100px auto 60px auto;
+    padding: 40px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.contact-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Orbitron', sans-serif;
+    color: rgb(211, 91, 35);
+}
+
+.contact-form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    height: 120px;
+}
+
+.contact-form .submit-btn {
+    background-color: rgb(211, 91, 35);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 100%;
+}
+
+.contact-form .submit-btn:hover {
+    background-color: #ff3c00;
+}
+
+/* ANIMAZIONE GENERALE */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+  /* FOOTER (opzionale) */
+  .footer {
     background-color: #fff;
     color: rgb(211, 91, 35);
     text-align: center;
-    padding: 10px 0;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-}
+    padding: 15px 0;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    margin-top: auto; /* spinge footer in basso */
+  }
+  
+  /* Responsive */
+  @media (max-width: 720px) {
+    .sneakers-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 450px) {
+    .sneakers-grid {
+      grid-template-columns: 1fr;
+    }
+  }
