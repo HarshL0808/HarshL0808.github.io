@@ -489,6 +489,9 @@ body {
         font-family: 'Orbitron', sans-serif; 
     }
 
+    .menu::after { 
+        display: none; 
+    }
 
     #menu-toggle:checked ~ .menu { 
         left: 0; 
