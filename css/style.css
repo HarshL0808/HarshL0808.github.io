@@ -439,37 +439,150 @@ body {
 
 /* MEDIA QUERIES */
 @media (max-width: 768px) {
-    body { padding-top: 100px; }
-    .logo { font-size: 2rem; padding: 10px 0; text-align: left; margin-left: 15px; }
-    .menu-toggle-label { display: flex; }
-    .menu { position: fixed; top: 0; left: -100%; width: 280px; height: 100vh; background-color: rgb(211, 91, 35); transition: left 0.3s ease; z-index: 1000; display: block; padding-top: 80px; box-shadow: 2px 0 10px rgba(0,0,0,0.3); }
-    .menu ul { flex-direction: column; padding: 0; max-width: none; }
-    .menu ul li { margin: 0; width: 100%; }
-    .menu ul li a { border-radius: 0; padding: 20px; margin: 0; background: rgba(255,255,255,0.2); border-bottom: 1px solid rgba(255,255,255,0.1); font-family: 'Orbitron', sans-serif; }
-    .menu::after { content: ''; position: fixed; top: 0; left: 280px; width: calc(100vw - 280px); height: 100vh; background: rgba(0,0,0,0.5); opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
-    #menu-toggle:checked ~ .menu { left: 0; }
-    #menu-toggle:checked ~ .menu::after { opacity: 1; pointer-events: all; }
-    #menu-toggle:checked + .menu-toggle-label span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
-    #menu-toggle:checked + .menu-toggle-label span:nth-child(2) { opacity: 0; }
-    #menu-toggle:checked + .menu-toggle-label span:nth-child(3) { transform: rotate(-45deg) translate(7px,-6px); }
+    body { 
+        padding-top: 100px; 
+    }
 
-    .home-content { flex-direction: column; margin: 30px 0; }
-    .image-slideshow { height: 300px; }
-    .slideshow-text { height: auto; min-height: 250px; }
-    .text-content { position: relative; opacity: 1; height: auto; margin-bottom: 20px; animation: none; }
-    .sneaker-item, .sneaker-item.reverse { flex-direction: column; }
-    .sneaker-image img { height: 300px; }
-    .new-releases-grid { grid-template-columns: repeat(2,1fr); gap: 20px; }
-    .contact-container { padding: 20px; margin: 20px auto; }
-    .page-title h1 { font-size: 2rem; }
+    .logo { 
+        font-size: 2rem; 
+        padding: 10px 0; 
+        text-align: left; 
+        margin-left: 15px; 
+    }
+
+    .menu-toggle-label { 
+        display: flex; 
+    }
+
+    .menu { 
+        position: fixed; 
+        top: 0; 
+        left: -100%; 
+        width: 280px; 
+        height: 100vh; 
+        background-color: rgb(211, 91, 35); 
+        transition: left 0.3s ease; 
+        z-index: 1001; /* menu sopra tutto */
+        display: block; 
+        padding-top: 80px; 
+        box-shadow: 2px 0 10px rgba(0,0,0,0.3); 
+    }
+
+    .menu ul { 
+        flex-direction: column; 
+        padding: 0; 
+        max-width: none; 
+    }
+
+    .menu ul li { 
+        margin: 0; 
+        width: 100%; 
+    }
+
+    .menu ul li a { 
+        border-radius: 0; 
+        padding: 20px; 
+        margin: 0; 
+        background: rgba(255,255,255,0.2); 
+        border-bottom: 1px solid rgba(255,255,255,0.1); 
+        font-family: 'Orbitron', sans-serif; 
+    }
+
+    /* Overlay rimosso */
+    .menu::after { 
+        display: none; 
+    }
+
+    #menu-toggle:checked ~ .menu { 
+        left: 0; 
+    }
+
+    #menu-toggle:checked + .menu-toggle-label span:nth-child(1) { 
+        transform: rotate(45deg) translate(5px,5px); 
+    }
+
+    #menu-toggle:checked + .menu-toggle-label span:nth-child(2) { 
+        opacity: 0; 
+    }
+
+    #menu-toggle:checked + .menu-toggle-label span:nth-child(3) { 
+        transform: rotate(-45deg) translate(7px,-6px); 
+    }
+
+    .home-content { 
+        flex-direction: column; 
+        margin: 30px 0; 
+    }
+
+    .image-slideshow { 
+        height: 300px; 
+    }
+
+    .slideshow-text { 
+        height: auto; 
+        min-height: 250px; 
+    }
+
+    .text-content { 
+        position: relative; 
+        opacity: 1; 
+        height: auto; 
+        margin-bottom: 20px; 
+        animation: none; 
+    }
+
+    .sneaker-item, 
+    .sneaker-item.reverse { 
+        flex-direction: column; 
+    }
+
+    .sneaker-image img { 
+        height: 300px; 
+    }
+
+    .new-releases-grid { 
+        grid-template-columns: repeat(2,1fr); 
+        gap: 20px; 
+    }
+
+    .contact-container { 
+        padding: 20px; 
+        margin: 20px auto; 
+    }
+
+    .page-title h1 { 
+        font-size: 2rem; 
+    }
 }
 
 @media (max-width: 480px) {
-    .logo { font-size: 1.8rem; }
-    .image-slideshow { height: 250px; }
-    .new-releases-grid { grid-template-columns: 1fr; gap: 15px; max-width: 400px; }
-    .menu { width: 250px; }
-    .page-title h1 { font-size: 1.8rem; }
-    .sneaker-info h2 { font-size: 1.5rem; }
-    .sneaker-image img { height: 250px; }
+    .logo { 
+        font-size: 1.8rem; 
+    }
+
+    .image-slideshow { 
+        height: 250px; 
+    }
+
+    .new-releases-grid { 
+        grid-template-columns: 1fr; 
+        gap: 15px; 
+        max-width: 400px; 
+    }
+
+    .menu { 
+        width: 250px; 
+    }
+
+    .page-title h1 { 
+        font-size: 1.8rem; 
+    }
+
+    .sneaker-info h2 { 
+        font-size: 1.5rem; 
+    }
+
+    .sneaker-image img { 
+        height: 250px; 
+    }
 }
