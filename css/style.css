@@ -488,20 +488,7 @@ body {
         font-family: 'Orbitron', sans-serif; 
     }
 
-    /* Overlay  */
-    .menu::after { 
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;      /* inizio a sinistra dello schermo */
-        width: 100vw; /* copre tutto lo schermo */
-        height: 100vh;
-        background: rgba(0,0,0,0.5);
-        opacity: 1;
-        pointer-events: all;
-        transition: opacity 0.3s ease;
-        z-index: 1000; /* sotto il menu che ha z-index 1001 */
-}
+    
  
     }
 
