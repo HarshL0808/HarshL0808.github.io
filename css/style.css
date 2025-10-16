@@ -439,6 +439,8 @@ body {
 }
 
 /* MEDIA QUERIES */
+
+/* Tablet e smartphone grandi */
 @media (max-width: 768px) {
     body { 
         padding-top: 100px; 
@@ -451,6 +453,7 @@ body {
         margin-left: 15px; 
     }
 
+    /* --- MENU MOBILE --- */
     .menu-toggle-label { 
         display: flex; 
     }
@@ -505,7 +508,7 @@ body {
         transform: rotate(-45deg) translate(7px,-6px); 
     }
 
-    /* --- SISTEMATO SLIDESHOW --- */
+    /* --- SLIDESHOW RESPONSIVE --- */
     .home-content { 
         flex-direction: column; 
         margin: 30px 0; 
@@ -518,7 +521,7 @@ body {
     }
 
     .image-slideshow { 
-        height: 250px;              /* ridotta per schermi piccoli */
+        height: 260px;              
         border-radius: 10px;
         overflow: hidden;
     }
@@ -530,15 +533,16 @@ body {
     }
 
     .slideshow-text {
-        min-height: 300px;      /* più alto, lascia spazio ai testi */
+        min-height: 340px;      
         margin-top: 20px;
         display: flex;
         justify-content: center;
         align-items: center;
         position: relative;
     }
+
     .text-content {
-        position: absolute;         /* resta sovrapposta per animazione */
+        position: absolute;         
         top: 0;
         left: 0;
         width: 100%;
@@ -548,10 +552,12 @@ body {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 20px;
-        background: rgba(255, 255, 255, 0.9);
+        align-items: center;
+        padding: 25px;
+        background: rgba(255, 255, 255, 0.92);
         border-radius: 10px;
         box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        text-align: center;
     }
 
     .text-content:nth-child(1) { animation-delay: 0s; }
@@ -559,22 +565,26 @@ body {
     .text-content:nth-child(3) { animation-delay: 10s; }
 
     .text-content h2 {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
+        margin-bottom: 10px;
     }
 
     .text-content p {
-        font-size: 1rem;
+        font-size: 1.05rem;
+        line-height: 1.4;
     }
 }
+
+/* Smartphone piccoli */
 @media (max-width: 480px) {
     .logo { 
         font-size: 1.6rem; 
         margin-left: 10px;
     }
 
-    /* Slideshow */
+    /* --- SLIDESHOW --- */
     .image-slideshow { 
-        height: 200px;                 /* un po’ più bassa */
+        height: 200px;                 
     }
 
     .slide img {
@@ -584,13 +594,13 @@ body {
     }
 
     .slideshow-text {
-    min-height: 250px;       /* aumenta l’altezza minima */
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
+        min-height: 280px;      
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
 
     .text-content {
         position: absolute;
@@ -603,29 +613,30 @@ body {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;            /* centra testo anche orizzontalmente */
-        padding: 15px;
-        background: rgba(255, 255, 255, 0.9);
+        align-items: center;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.93);
         border-radius: 10px;
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         text-align: center;
     }
 
     .text-content h2 {
-        font-size: 1.2rem;
+        font-size: 1.25rem;
         margin-bottom: 10px;
     }
 
     .text-content p {
-        font-size: 0.95rem;
+        font-size: 1rem;
+        line-height: 1.4;
     }
 
-    /* Menu laterale */
+    /* --- MENU --- */
     .menu { 
         width: 240px; 
     }
 
-    /* Titoli e sezioni */
+    /* --- TITOLI E IMMAGINI --- */
     .page-title h1 { 
         font-size: 1.6rem; 
     }
@@ -638,7 +649,7 @@ body {
         height: 220px; 
     }
 
-    /* Nuove uscite */
+    /* --- NUOVE USCITE --- */
     .new-releases-grid { 
         grid-template-columns: 1fr; 
         gap: 15px; 
