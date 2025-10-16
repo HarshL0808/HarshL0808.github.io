@@ -463,7 +463,7 @@ body {
         height: 100vh; 
         background-color: rgb(211, 91, 35); 
         transition: left 0.3s ease; 
-        z-index: 1001; /* menu sopra tutto */
+        z-index: 1001;
         display: block; 
         padding-top: 80px; 
         box-shadow: 2px 0 10px rgba(0,0,0,0.3); 
@@ -489,10 +489,6 @@ body {
         font-family: 'Orbitron', sans-serif; 
     }
 
-    .menu::after { 
-        display: none; 
-    }
-
     #menu-toggle:checked ~ .menu { 
         left: 0; 
     }
@@ -509,80 +505,136 @@ body {
         transform: rotate(-45deg) translate(7px,-6px); 
     }
 
+    /* --- SISTEMATO SLIDESHOW --- */
     .home-content { 
         flex-direction: column; 
         margin: 30px 0; 
+        align-items: center;
+    }
+
+    .slideshow-container, 
+    .slideshow-text {
+        width: 100%;
     }
 
     .image-slideshow { 
-        height: 300px; 
+        height: 250px;              /* ridotta per schermi piccoli */
+        border-radius: 10px;
+        overflow: hidden;
     }
 
-    .slideshow-text { 
-        height: auto; 
-        min-height: 250px; 
+    .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
-    .text-content { 
-        position: relative; 
-        opacity: 1; 
-        height: auto; 
-        margin-bottom: 20px; 
-        animation: none; 
+    .slideshow-text {
+        height: auto;
+        margin-top: 15px;
     }
 
-    .sneaker-item, 
-    .sneaker-item.reverse { 
-        flex-direction: column; 
+    .text-content {
+        position: absolute;         /* resta sovrapposta per animazione */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        animation: textAnimation 15s infinite;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
-    .sneaker-image img { 
-        height: 300px; 
+    .text-content:nth-child(1) { animation-delay: 0s; }
+    .text-content:nth-child(2) { animation-delay: 5s; }
+    .text-content:nth-child(3) { animation-delay: 10s; }
+
+    .text-content h2 {
+        font-size: 1.4rem;
     }
 
-    .new-releases-grid { 
-        grid-template-columns: repeat(2,1fr); 
-        gap: 20px; 
-    }
-
-    .contact-container { 
-        padding: 20px; 
-        margin: 20px auto; 
-    }
-
-    .page-title h1 { 
-        font-size: 2rem; 
+    .text-content p {
+        font-size: 1rem;
     }
 }
-
 @media (max-width: 480px) {
     .logo { 
-        font-size: 1.8rem; 
+        font-size: 1.6rem; 
+        margin-left: 10px;
     }
 
+    /* Slideshow */
     .image-slideshow { 
-        height: 250px; 
+        height: 200px;                 /* un po’ più bassa */
     }
 
-    .new-releases-grid { 
-        grid-template-columns: 1fr; 
-        gap: 15px; 
-        max-width: 400px; 
+    .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
+    .slideshow-text {
+        height: 180px;
+        margin-top: 10px;
+    }
+
+    .text-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        animation: textAnimation 15s infinite;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;            /* centra testo anche orizzontalmente */
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+
+    .text-content h2 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    .text-content p {
+        font-size: 0.95rem;
+    }
+
+    /* Menu laterale */
     .menu { 
-        width: 250px; 
+        width: 240px; 
     }
 
+    /* Titoli e sezioni */
     .page-title h1 { 
-        font-size: 1.8rem; 
+        font-size: 1.6rem; 
     }
 
     .sneaker-info h2 { 
-        font-size: 1.5rem; 
+        font-size: 1.3rem; 
     }
 
     .sneaker-image img { 
-        height: 250px; 
+        height: 220px; 
+    }
+
+    /* Nuove uscite */
+    .new-releases-grid { 
+        grid-template-columns: 1fr; 
+        gap: 15px; 
+        max-width: 350px; 
     }
 }
