@@ -530,10 +530,13 @@ body {
     }
 
     .slideshow-text {
-        height: auto;
-        margin-top: 15px;
+        min-height: 300px;      /* più alto, lascia spazio ai testi */
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
     }
-
     .text-content {
         position: absolute;         /* resta sovrapposta per animazione */
         top: 0;
@@ -581,9 +584,13 @@ body {
     }
 
     .slideshow-text {
-        height: 180px;
-        margin-top: 10px;
-    }
+    min-height: 250px;       /* aumenta l’altezza minima */
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
 
     .text-content {
         position: absolute;
